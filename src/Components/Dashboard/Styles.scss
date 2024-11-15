@@ -1,0 +1,297 @@
+/* General Design Variables */
+$primary-color: #00ca00;
+$secondary-color: #00b894;
+$background-color: #f7f9fc;
+$text-color: #333;
+$button-bg: $primary-color;
+$card-bg: #ffffff;
+$button-hover: darken($button-bg, 10%);
+$disabled-button-bg: lighten($button-bg, 30%);
+$table-header-bg: #00796b;
+$accent-color: #e74c3c;
+
+$font-family: 'Roboto', sans-serif;
+
+$break-color: #ff9800;
+$off-duty-color: #f44336;
+$card-bg: #ffffff;
+$text-color: #333;
+$icon-size: 1.5rem;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Body */
+body {
+  font-family: $font-family;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+/* Dashboard Wrapper */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: $background-color;
+  font-family: $font-family;
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    padding: 1.5rem;
+    background-color: $card-bg;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+
+    h2 {
+      color: $primary-color;
+      font-size: 2rem;
+    }
+
+    .datetime {
+      font-size: 1.25rem;
+      color: $text-color;
+    }
+  }
+
+  /* Status Indicator */
+/* Status Indicator Container */
+.status-indicator {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  background-color: $card-bg;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 2rem auto;
+  font-family: 'Roboto', sans-serif;
+
+  /* Individual Status Card */
+  .status-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: lighten($card-bg, 10%);
+    text-align: center;
+    transition: background-color 0.3s ease;
+    
+    /* Add subtle hover effect */
+    &:hover {
+      background-color: lighten($card-bg, 15%);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Status Icon */
+    .status-icon {
+      font-size: $icon-size;
+      margin-bottom: 0.5rem;
+      color: $text-color;
+    }
+
+    /* Status Label */
+    .status-label {
+      font-weight: bold;
+      font-size: 1rem;
+      color: $text-color;
+      margin-bottom: 0.25rem;
+    }
+
+
+
+    /* Status Description */
+    .status-description {
+      font-size: 0.9rem;
+      color: lighten($text-color, 20%);
+    }
+
+    /* Different Status Colors */
+    &.on-duty {
+      .status-icon {
+        color: $primary-color;
+      }
+    }
+
+    &.on-break {
+      .status-icon {
+        color: $break-color;
+      }
+    }
+
+    &.off-duty {
+      .status-icon {
+        color: $off-duty-color;
+      }
+    }
+  }
+}
+
+  /* Actions */
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+
+    button {
+      padding: 0.75rem;
+      font-size: 1.1rem;
+      color: white;
+      background-color: $button-bg;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $button-hover;
+      }
+
+      &:disabled {
+        background-color: $disabled-button-bg;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+/* Attendance Records Section */
+.attendance-records {
+  width: 100%;
+  max-width: 900px;
+  background-color: $card-bg;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+
+  /* Title */
+  .MuiTypography-root {
+    font-weight: 600;
+    color: $primary-color;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  /* Table Design */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Roboto', sans-serif;
+    color: $text-color;
+    border-radius: 8px;
+    overflow: hidden;
+
+    /* Table Head */
+    th {
+      padding: 1rem;
+      text-align: center;
+      background-color: $table-header-bg;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Table Data */
+    td {
+      padding: 1rem;
+      text-align: center;
+      background-color: #fff;
+      border-bottom: 1px solid #f2f2f2;
+      font-weight: 500;
+      color: #555;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #e0f7fa;
+        cursor: pointer;
+      }
+    }
+
+    /* Row Styling */
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #e0f7fa;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Date-Time Styling */
+    .date-time {
+      font-family: 'Courier New', Courier, monospace;
+      color: $primary-color;
+      font-size: 1.15rem;
+      padding: 0.5rem;
+      border-radius: 8px;
+      background-color: #eafafa;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $secondary-color;
+        background-color: #d0f5e5;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  /* No records message */
+  .no-records {
+    font-size: 1.2rem;
+    color: $text-color;
+    font-weight: 600;
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
+
+/* Logout Button Styling */
+.logout-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  color: white;
+  background-color: $accent-color;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($accent-color, 10%);
+  }
+}
+
+/* Custom Styling for Date-Time and Progress */
+.date-time, .progress-text {
+  font-size: 1.1rem;
+  color: $primary-color;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background-color: #eafafa;
+  margin-top: 1rem;
+}
+
+.date-time:hover {
+  background-color: #d0f5e5;
+  transform: scale(1.05);
+  cursor: pointer;
+}

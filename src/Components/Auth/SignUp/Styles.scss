@@ -1,0 +1,127 @@
+// src/components/Auth/Signup.module.scss
+
+// Define the same color scheme and typography as the Login page
+
+$primary-color: #4CAF50;        // Subtle green for a professional look
+$secondary-color: #2C3E50;      // Darker shade for text and accents
+$input-border-color: #BDC3C7;   // Lighter, neutral border color
+$input-focus-color: #27AE60;    // A darker shade of green for focus state
+$error-color: #E74C3C;          // Standard error color (red)
+$text-color: #34495E;           // Dark gray text for readability
+$background-color: #ECF0F1;     // Light, neutral background color
+$button-hover-color: #45B39D;   // Slightly darker green for hover state
+
+// Main container styles
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: $primary-color;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+// Form styles - same as the login page
+.login-form {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border: 1px solid #E0E0E0;
+
+  .input-group {
+    margin-bottom: 1.8rem;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 1rem;
+      color: $secondary-color;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    input {
+      padding: 1rem;
+      border: 1px solid $input-border-color;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: $secondary-color;
+      transition: all 0.3s ease;
+      background-color: #f9f9f9;
+
+      &:focus {
+        outline: none;
+        border-color: $input-focus-color;
+        box-shadow: 0 0 5px rgba(39, 174, 96, 0.2);
+      }
+    }
+  }
+
+  .error-message {
+    color: $error-color;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .login-button {
+    padding: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $button-hover-color;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Redirect link for already having an account
+.redirect-link {
+  margin-top: 1rem;
+  text-align: center;
+
+  p {
+    font-size: 1rem;
+    color: $secondary-color;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
